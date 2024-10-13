@@ -1,0 +1,10 @@
+{
+	"id": 10,
+	"color": "Red",
+	"engine": {
+		"volume": 2.0,
+		"fuel": {
+			"type": "diesel"
+		}
+	}
+}

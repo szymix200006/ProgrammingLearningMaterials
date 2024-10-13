@@ -1,0 +1,4 @@
+1. SELECT COUNT(*) FROM uzytkownicy INNER JOIN uprawnienia ON uzytkownicy.uprawnienia_id = uprawnienia.ID WHERE uprawnienia.NAME = "sygnalista"
+2. SELECT uz.imie, uz.nazwisko, uz.email, up.name FROM uzytkownicy as uz INNER JOIN uprawnienia as up WHERE uz.uprawnienia_id = up.ID
+3. CREATE USER 'agent'@'localhost' IDENTIFIED BY 'tajneHaslo'
+4. GRANT ALL PRIVILEGES ON tajnabaza.* TO 'agent'

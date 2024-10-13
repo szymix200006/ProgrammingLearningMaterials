@@ -1,0 +1,45 @@
+import { useRef, useState, useOptimistic} from 'react'
+
+export default function TodoList({initialTodos}) {
+    const [todos, setTodos] = useState(initialTodos)
+    const [optimisticTodos, setOptimisticTodos] = useOptimistic(todos);
+    const inputRef = useRef(null)
+
+    async function onSubmit(e) {
+        e.preventDefault()
+
+        if(inputRef.current == null) return
+
+        const optimisticTodo = {id: crypto.randomUUID(), title: inputRef.current.value}
+        setOptimisticTodos(prev => [...prev, optimisticTodo])
+        const newTodo = await createTodo(inputRef.current.value)
+        setTodos(prev => [...prev, newTodo])
+    }
+
+  return (
+    <div>
+      <form method={onSubmit}>
+        <label>Title</label>
+        <br />
+        <input ref={inputRef} required/>
+        <br />
+        <button>Create</button>
+      </form>
+      <ul>
+        {optimisticTodos.map(todo => {
+            <li key={todo.id}>{todo.title}</li>
+        })}
+      </ul>
+    </div>
+  )
+}
+
+function createTodo(title) {
+    return wait({id: crypto.randomUUID(), title: `${title} - Server`}, 1000)
+}
+
+function wait(value, duration) {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(value), duration)
+    })
+}

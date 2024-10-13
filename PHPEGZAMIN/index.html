@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="nu.jpg" type="image/x-icon">
+    <style>
+        ul {
+            list-style-image: url("nu.jpg");
+        }
+    </style>
+</head>
+<body>
+    <audio controls autoplay loop>
+        <source type="audio/mp3" src="chu.mp3">
+    </audio>
+
+    <video controls width="500" height="300" poster="nu.jpg" loop>
+        <source type="video/mp4" src="zu.mp4">
+    </video>
+    <p>Niełamiąca&nbsp;Spacja</p>
+    <p>Metry kwadratowe: (m<sup>2</sup>)</p>
+    <button onclick="location.href='index.html'">Przejscie do innego pliku buttonem nawigacyjnym</button>
+
+    <input type="radio" name="fruit" value="fruit-1"><label for="fruit">Japko</label>
+    <input type="radio" name="fruit" value="fruit-2"><label for="fruit">Grucha</label>
+    <input type="radio" name="fruit" value="fruit-3"><label for="fruit">Wiśnia</label>
+    <button onclick="handleStuff()">Handle Stuff</button>
+
+    <input type="checkbox" name="veggie" value="Tomato">Tomato<br>
+    <input type="checkbox" name="veggie" value="Carrot">Carrot<br>
+    <input type="Checkbox" name="veggie" value="Lettuce">Lettuce<br>
+    <button onclick="handleMoreStuff()">Handle More Stuff</button>
+
+    <script>
+        const radioInput = document.querySelectorAll('input[name="fruit"]');
+        const checkboxes = document.querySelectorAll('input[name="veggie"]');
+        function handleStuff() {
+            let result;
+            radioInput.forEach(input => {
+                if(input.checked == true) result = input.value;
+            })
+            console.log(result)
+        }
+
+        function handleMoreStuff() {
+            let result = [];
+            checkboxes.forEach(input => {
+                if(input.checked == true) result.push(input.value);
+            })
+            console.log(result);
+        }
+    </script>
+    substring(od, do)
+    slice(od, do)
+    substr(od, ile)
+    element.setAttribute("class", "democlass");
+    <select name="kraj" multiple>
+        <option value="PL">PL</option>
+        <option value="GER">GER</option>
+    </select>
+</body>
+</html>
